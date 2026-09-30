@@ -1,0 +1,15 @@
+[Unit]
+Description=GTD MCP Server
+After=network.target
+
+[Service]
+Type=simple
+User=pveadmin
+WorkingDirectory=/home/pveadmin/assistant/dev
+EnvironmentFile=/home/pveadmin/assistant/.env
+ExecStart=/home/pveadmin/assistant/venv/bin/python server.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
